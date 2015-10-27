@@ -1,0 +1,13 @@
+---
+- name: download hbase...
+  environment: proxy_env
+  get_url: url='{{ hbase_url }}' dest='/tmp/{{ hbase_archive }}'
+
+- name: unarchive hbase
+  unarchive: copy=no src='/tmp/{{ hbase_archive }}' dest='/opt'
+
+- name: link hbase
+  file: src='/opt/{{ hbase_name }}' dest='/opt/hbase' state=link
+
+- name: include hbase in the default path...
+  copy: src='etc/profile.d/hbase.sh' dest='/etc/profile.d/hbase.sh' mode=644

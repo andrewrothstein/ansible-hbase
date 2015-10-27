@@ -1,0 +1,5 @@
+---
+hbase_version : '1.1.1'
+hbase_name : 'hbase-{{ hbase_version }}'
+hbase_archive : '{{ hbase_name }}-bin.tar.gz'
+hbase_url : 'http://mirror.cc.columbia.edu/pub/software/apache/hbase/{{ hbase_version }}/{{ hbase_archive }}'
